@@ -14,7 +14,9 @@
     },
     {
       "name": "system.shortcut"
-    }
+    },
+    { "name": "system.fetch" },
+    { "name": "system.clipboard" }
   ],
   "permissions": [
     {
@@ -25,15 +27,9 @@
     "logLevel": "off"
   },
   "router": {
-    "entry": "Demo",
+    "entry": "Home",
     "pages": {
-      "Demo": {
-        "component": "index"
-      },
-      "DemoDetail": {
-        "component": "index"
-      },
-      "About": {
+      "Home": {
         "component": "index"
       }
     },
@@ -52,15 +48,10 @@
     "titleBarTextColor": "#414141",
     "menu": true,
     "pages": {
-      "Demo": {
-        "titleBarText": "示例页",
-        "menu": false
-      },
-      "DemoDetail": {
-        "titleBarText": "详情页"
-      },
-      "About": {
-        "menu": false
+      "Home": {
+        "titleBarText": "神回复",
+        "menu": false,
+        "titleBar": false
       }
     }
   }

@@ -3,9 +3,15 @@
 * 应用级别的配置，供所有页面公用
 */
 import util from './util'
+import http from './http.js'
+// 注意：仅用于注入类库函数，不允许存储页面组件等数据
+const injectRef = Object.getPrototypeOf(global) || global
 
+// 注入regeneratorRuntime
+injectRef.regeneratorRuntime = require('@babel/runtime/regenerator')
 export default {
-  showMenu: util.showMenu,
-  createShortcut: util.createShortcut
+  ...util,
+  $http: http,
+  key: '24d597138c99ebe0e5153d2705e37550'
 }
 </script>
