@@ -1,18 +1,19 @@
-.home {
+  .home {
     background-image: url(../Common/bg.png);
     display: flex;
     flex-direction: column;
-    height: 100%;
+    /* height: 100%; */
   }
   .main {
-    padding: 0 50px;
     margin-top: 475px;
     display: flex;
     flex-direction: column;
   }
   .content {
+    padding: 0 50px;
     display: flex;
     flex-direction: column;
+    height: 600px;
   }
   .content-item {
     display: flex;
@@ -36,6 +37,9 @@
     color: #333;
     line-height: 42px;
   }
+  .content__title .font-weight, .content__reply .font-weight {
+      color: #999;
+  } 
   .font-weight {
     font-weight: bold;
   }
@@ -63,8 +67,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 75px;
-      cursor: pointer;
   }
   .recharge__icon {
       width: 28px;
@@ -74,4 +76,53 @@
       font-size: 32px;
       color: #fff;
       margin-left: 15px;
+  }
+
+  .footer-ad {
+      position: relative;
+      margin-bottom: 100px;
+      margin-top: 80px;
+  }
+  .footer-ad__img {
+      height: 180px;
+      background-color: #E2E2E2;
+      width: 100%;
+  }
+
+  .close {
+      position: absolute;
+      right: 17px;
+      top: 17px;
+      width: 24px;
+      height: 24px;
+  }
+
+  .modal {
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+  }
+  .mask {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, .4);
+  }
+  .modal-content {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      padding: 0 50px;
+      transform: translateY(-50%);
+  }
+  .insert-ad {
+      width: 100%;
+      height: 400px;
+      background-color: #fff;
+      border-radius: 20px;
+      position: relative;
   }

@@ -17,5 +17,8 @@
     "eslint-plugin-hybrid": "0.0.5",
     "hap-toolkit": "*"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "browserslist": [
+    "chrome 65"
+  ]
 }

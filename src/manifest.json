@@ -1,9 +1,9 @@
 {
   "package": "com.shenhuifu.package",
-  "name": "神回复",
+  "name": "一同神回复",
   "versionName": "1.0.0",
   "versionCode": "1",
-  "minPlatformVersion": "1020",
+  "minPlatformVersion": "1060",
   "icon": "/Common/logo.png",
   "features": [
     {
@@ -16,7 +16,8 @@
       "name": "system.shortcut"
     },
     { "name": "system.fetch" },
-    { "name": "system.clipboard" }
+    { "name": "system.clipboard" },
+    {"name":"service.ad"}
   ],
   "permissions": [
     {

@@ -24,42 +24,26 @@
         <image class="recharge__icon" src="/Common/change-icon.png"></image>
         <text class="recharge__text">换一句</text>
       </div>
+      <div class="footer-ad" if="footerAdShow">
+        <div class="footer-ad__img">
+          <image></image>
+        </div>
+        <image onclick="hideFooterAd" class="close" src="/Common/close.png"></image>
+      </div>
+    </div>
+    <div class="modal" if="modalShow">
+      <div class="mask">
+      </div>
+      <div class="modal-content">
+        <div class="insert-ad">
+          <image onclick="closeModal" src="/Common/close.png" class="close"></image>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
-<script>
-import router from '@system.router'
-import clipboard from '@system.clipboard'
-import prompt from '@system.prompt';
-export default {
-  // 页面级组件的数据模型，影响传入数据的覆盖机制：private内定义的属性不允许被覆盖
-  private: {
-    newsList: []
-  },
-  onInit() {
-      this.getData()
-  },
-  async getData() {
-    const $appDef = this.$app.$def
-    const {data} = await $appDef.$http.get(`/index?key=${$appDef.key}`)
-    if(data.code === 200) {
-      this.newsList = data.newslist
-    }
-  },
-  onShow() {
-  },
-  longPress(item, e) {
-    clipboard.set({
-      text: `问题\n${item.title}\n回复\n${item.content}`,
-      success () {
-        prompt.showToast({
-          message: '复制成功'
-        })
-      }
-    })
-  }
-}
+<script src="./index.js">
 </script>
 
 <style>
