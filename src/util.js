@@ -42,27 +42,31 @@ function showMenu () {
 function createShortcut () {
   const prompt = require('@system.prompt')
   const shortcut = require('@system.shortcut')
-  shortcut.hasInstalled({
-    success: function (ret) {
-      if (ret) {
-        prompt.showToast({
-          message: '已创建桌面图标'
-        })
-      } else {
-        shortcut.install({
-          success: function () {
-            prompt.showToast({
-              message: '成功创建桌面图标'
-            })
-          },
-          fail: function (errmsg, errcode) {
-            prompt.showToast({
-              message: `${errcode}: ${errmsg}`
-            })
-          }
-        })
+  return new Promise((resolve, reject) => {
+    shortcut.hasInstalled({
+      success: function (ret) {
+        if (ret) {
+          prompt.showToast({
+            message: '已创建桌面图标'
+          })
+        } else {
+          shortcut.install({
+            success: function () {
+              resolve()
+              prompt.showToast({
+                message: '成功创建桌面图标'
+              })
+            },
+            fail: function (errmsg, errcode) {
+              reject()
+              prompt.showToast({
+                message: `创建桌面图标失败`
+              })
+            }
+          })
+        }
       }
-    }
+    })
   })
 }
 

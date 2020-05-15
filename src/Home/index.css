@@ -8,20 +8,22 @@
     margin-top: 475px;
     display: flex;
     flex-direction: column;
+    padding: 0 50px;
   }
   .content {
-    padding: 0 50px;
+    /* padding: 0 50px; */
     display: flex;
     flex-direction: column;
-    height: 600px;
   }
   .content-item {
     display: flex;
     flex-direction: column;
     padding: 20px 50px;
     background-color: #fff;
-    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     opacity: 0.93;
+    height: 500px;
   }
   .content__title, .content__reply {
     display: flex;
@@ -47,6 +49,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #fff;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    opacity: 0.93;
   }
   .content__copy__icon {
       width: 26px;
@@ -62,7 +68,7 @@
       height: 86px;
       width: 320px;
       border-radius: 43px;
-      margin: 0 auto;
+      margin: 40px auto 20px;
       background: linear-gradient(-30deg,rgba(238,0,0,1),rgba(255,82,33,1));
       display: flex;
       justify-content: center;
@@ -79,15 +85,50 @@
   }
 
   .footer-ad {
-      position: relative;
-      margin-bottom: 100px;
-      margin-top: 80px;
-  }
-  .footer-ad__img {
-      height: 180px;
-      background-color: #E2E2E2;
-      width: 100%;
-  }
+    position: relative;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    border-radius: 20px;
+    background-color: #E2E2E2;
+    height: 180px;
+}
+.footer-ad__img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+}
+.footer-ad__img__icon {
+    /* margin-left: 20px; */
+    width: 80px;
+    height: 80px;
+}
+.footer-ad__img__main {
+    /* width: 450px; */
+    height: 160px;
+    /* border-radius: 10px; */
+}
+.click-btn__text {
+    background-color: royalblue;
+    color: #fff;
+    font-size: 24px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.ad-tip {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background-color: rgba(0, 0, 0, .2);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+.ad-tip text {
+    font-size: 18px;
+    color: #fff;
+}
 
   .close {
       position: absolute;
