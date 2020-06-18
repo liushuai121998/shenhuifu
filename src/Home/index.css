@@ -5,7 +5,7 @@
     /* height: 100%; */
   }
   .main {
-    margin-top: 475px;
+    margin-top: 375px;
     display: flex;
     flex-direction: column;
     padding: 0 50px;
@@ -24,6 +24,7 @@
     border-top-right-radius: 20px;
     opacity: 0.93;
     height: 500px;
+    position: relative;
   }
   .content__title, .content__reply {
     display: flex;
@@ -167,3 +168,10 @@
       border-radius: 20px;
       position: relative;
   }
+.collect-icon {
+    position: absolute;
+    right: 50px;
+    top: 30px;
+    width: 40px;
+    height: 40px;
+}

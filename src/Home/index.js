@@ -7,11 +7,11 @@ export default Custom_page({
   private: {
     newsList: [],
     footerAdShow: false,
-    modalShow: false
+    modalShow: false,
+    collectIcon: '/Common/collect.png',
   },
   onInit() {
       this.getData()
-      // this.videoAd()
       this.insertAd()
       this.queryFooterAd()
   },
@@ -20,6 +20,22 @@ export default Custom_page({
     const {data} = await $appDef.$http.get(`/index?key=${$appDef.key}`)
     if(data.code === 200) {
       this.newsList = data.newslist
+      $appDef.storageHandle.get('list').then(d => {
+        if(d) {
+          try{
+            let res = JSON.parse(d)
+            if(this.newsList[0] && res.indexOf(`${this.newsList[0].title}&&${this.newsList[0].content}`) >= 0) {
+              this.collectIcon = '/Common/collect-active.png'
+            } else {
+              this.collectIcon = '/Common/collect.png'
+            }
+          }catch(err) {
+            this.collectIcon = '/Common/collect.png'
+          }
+        } else {
+          this.collectIcon = '/Common/collect.png'
+        }
+      })
     }
   },
   onShow() {
@@ -70,35 +86,50 @@ export default Custom_page({
           adUnitId: '1eaa38c466084d0f8fe92f481d3b9caa'
       })
       this.interstitialAd.onLoad(()=> {
-        // prompt.showToast({
-        //   message: 'insert load'
-        // })
         this.interstitialAd.show()
       })
     }
   },
   onHide() {
     this.interstitialAd && this.interstitialAd.destroy() 
-    this.videoAd && this.videoAd.destroy() 
   },
   closeModal() {
       this.modalShow = false
   },
-  videoAd() {
-    if(ad.createRewardedVideoAd) {
-      this.videoAd = ad.createRewardedVideoAd({ adUnitId: 'ef9cf71aa5424bcb92b08f1dae8ec773' })
-      this.videoAd.onLoad(()=> { 
-        // prompt.showToast({
-        //   message: 'load'
-        // })
-        this.videoAd.show()
-      })
-      this.videoAd.onClose(() => {
-        // prompt.showToast({
-        //   message: '关闭'
-        // })
-        this.insertAd()
-      })
-    }
+  toCollect() {
+    router.replace({
+      uri: '/Collect'
+    })
+  },
+  collect(item) {
+    const $appDef = this.$app.$def
+    $appDef.storageHandle.get('list').then(d => {
+      if(d) {
+        try{
+          let data = JSON.parse(d)
+          const str = `${item.title}&&${item.content}`
+          if(data.indexOf(str) < 0) {
+            data.push(str)
+            $appDef.storageHandle.set('list', JSON.stringify(data)).then(res => {
+              this.collectList = [...data]
+              prompt.showToast({
+                message: '收藏成功'
+              })
+            })
+          }
+        } catch(err) {
+          console.log(err)
+        }
+      } else {
+        const str = `${item.title}&&${item.content}`
+        $appDef.storageHandle.set('list', JSON.stringify([str])).then(res => {
+          this.collectList = [str]
+          prompt.showToast({
+            message: '收藏成功'
+          })
+        })
+      }
+    })
+    this.collectIcon = '/Common/collect-active.png'
   }
 })

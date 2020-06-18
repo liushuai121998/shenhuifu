@@ -1,0 +1,40 @@
+<import name="short-cut" src="../components/shortcut"></import>
+<template>
+   <div class="page">
+        <div class="collect">
+            <list class="list">
+                <block if="{{list.length > 0}}" for="{{(index, item) in list}}">
+                    <list-item type="{{index}}" key="{{index}}" class="list__item" onlongpress="longpress(index)">
+                        <text class="list__item__index" >{{index + 1}}</text>
+                        <div class="list__item__main">
+                            <text class="list__item__title">{{item.title}}</text>
+                            <text class="list__item__content">{{item.content}}</text>
+                        </div>
+                    </list-item>
+                </block>
+                <block else>
+                    <list-item type="add" class="add-collect">
+                        <image src="/Common/add-collect.png"></image>
+                        <text>快去收藏你喜欢的内容吧</text>
+                    </list-item>
+                </block>
+            </list>
+        </div>
+        <short-cut></short-cut>
+        <!-- tabbar -->
+        <div class="tab-bar">
+            <div onclick="toHome" class="tab-bar__item"><text>神回复</text></div>
+            <div class="tab-bar__item tab-bar__item--active"><text>我的收藏</text></div>
+        </div>
+   </div>
+</template>
+
+<script src="./index.js">
+</script>
+
+<style>
+@import './index.css';
+@import '../Common/css/common.css';
+</style>
+
+

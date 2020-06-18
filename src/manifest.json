@@ -1,8 +1,8 @@
 {
   "package": "com.shenhuifu.package",
   "name": "一同神回复",
-  "versionName": "1.0.2",
-  "versionCode": "2",
+  "versionName": "1.0.4",
+  "versionCode": "4",
   "minPlatformVersion": "1060",
   "icon": "/Common/logo.png",
   "features": [
@@ -32,6 +32,9 @@
     "pages": {
       "Home": {
         "component": "index"
+      },
+      "Collect": {
+        "component": "index"
       }
     },
     "widgets": {
@@ -51,6 +54,11 @@
     "pages": {
       "Home": {
         "titleBarText": "神回复",
+        "menu": false,
+        "titleBar": false
+      },
+      "Collect": {
+        "titleBarText": "我的收藏",
         "menu": false,
         "titleBar": false
       }

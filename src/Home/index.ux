@@ -19,6 +19,8 @@
             <image src="/Common/copy-icon.png" class="content__copy__icon"></image>
             <text class="content__copy__text">长按进行复制</text>
           </div>
+          <!-- 收藏 -->
+          <image class="collect-icon" onclick="collect(item)" src="{{collectIcon}}" ></image>
         </block>
       </div>
       <div class="recharge-btn" onclick="getData">
@@ -49,6 +51,11 @@
       </div>
     </div>
     <short-cut></short-cut>
+    <!-- tabbar -->
+    <div class="tab-bar">
+      <div class="tab-bar__item tab-bar__item--active"><text>神回复</text></div>
+      <div onclick="toCollect" class="tab-bar__item"><text>我的收藏</text></div>
+    </div>
   </div>
 </template>
 
@@ -57,4 +64,5 @@
 
 <style>
   @import './index.css';
+  @import '../Common/css/common.css';
 </style>

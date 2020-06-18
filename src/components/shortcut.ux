@@ -1,8 +1,12 @@
 <template>
     <div class="short-cut-wrap">
-        <div class="content" if="{{showShortCut}}" onclick="confirm">
-            <image src="/Common/huojian.png"></image>
-            <text>添加至桌面</text>
+        <div class="short-cut" if="showShortCut">
+            <image onclick="cancel" class="close" src="/Common/close.png"></image>
+            <image class="logo" src="/Common/logo.png"></image>
+            <text class="content-title">添加至桌面快捷方式</text>
+            <div class="btns">
+                <text class="confirm-btn" onclick="confirm">立即添加</text>
+            </div>
         </div>
     </div>
 </template>
@@ -38,24 +42,51 @@ export default {
 .short-cut-wrap {
     display: flex;
     justify-content: center;
+    /* padding: 0 20px; */
     position: fixed;
-    right: 50px;
-    bottom: 360px;
+    left: 0;
+    bottom: 100px;
 }
-.content {
+.short-cut {
+    width: 100%;
+    height: 100px;
+    background-color: rgba(0, 0, 0, .5);
+    /* border-radius: 20px; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 25px;
+}
+.logo {
+    width: 80px;
+    height: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.content-title {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    /* background-color: rgba(255, 255, 255, .8); */
-    border: 1px solid #999 ;
-    border-radius: 10px;
-    padding: 5px;
+    font-size: 36px;
+    /* font-weight: bold; */
+    color: #fff;
 }
-.content image {
-    width: 60px;
+.btns {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* align-items: center; */
+    flex: 1;
 }
-.content text {
-    font-size: 20px;
-    color: #999;
+.confirm-btn {
+    color: #fff;
+    font-size: 30px;
+    background-color: #4B90E1;
+    padding: 15px 10px;
+    border-radius: 8px;
+}
+.close {
+    width: 40px;
+    height: 40px;
+    
 }
 </style>
